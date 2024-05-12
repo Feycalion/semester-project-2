@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VintageVault | Listing</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="bg-background font-montserrat text-darkgray">
+    <!-- Header -->
+
+    <header
+      class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
+    >
+      <div class="left-links">
+        <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Home</a
+        >
+        <a href="#" class="text-offwhite mr-4 font-poiret text-xl">Browse</a>
+      </div>
+
+      <div class="right-links">
+        <a href="/register.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Register</a
+        >
+        <a href="#" class="text-offwhite font-poiret text-xl">Log In</a>
+      </div>
+    </header>
+
+    <div
+      class="relative overflow-hidden bg-cover bg-no-repeat"
+      style="
+        background-position: 50%;
+        background-image: url('images/headernoise.png');
+        height: 100px;
+      "
+    ></div>
+    <main class="min-h-screen">
+      <!-- Single listing -->
+      <section class="px-4 py-[60px] md:py-[120px]">
+        <!-- Container -->
+        <div class="max-w-[1200px] m-auto">
+          <div class="gap-8 flex flex-col lg:flex-row items-center">
+            <div class="flex flex-col gap-4">
+              <h1 class="text-2xl">Vintage Ring</h1>
+
+              <img
+                src="/images/0_0 (8).webp"
+                alt=""
+                class="md:max-w-[628px] md:max-h-[628px] object-cover"
+              />
+              <p class="text-lightgray">Ends in 1h 21m</p>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <img
+                  src="/images/0_0 (8).webp"
+                  alt=""
+                  class="rounded-full w-10 h-10"
+                />
+                <p>Created by Marie Hansson</p>
+              </div>
+              <p class="text-xl">Description</p>
+              <p class="max-w-[628px]">
+                <strong> Title:</strong> "Gilded Waves" by Eloise Winslow
+                <br /><br />
+                Crafted by the masterful hand of Victorian painter Eloise
+                Winslow, this captivating seascape captures the essence of
+                maritime splendor and romantic adventure. Whether you're a
+                connoisseur of Victorian art or simply drawn to the romance of
+                bygone eras, this captivating painting is sure to elevate any
+                space with its timeless allure. <br />
+                <br />
+                Don't miss the opportunity to own a piece of history and add a
+                touch of Victorian splendor to your collection. <br />
+                <br />
+                <strong> Dimensions:</strong> 24 inches (height) x 18 inches
+                (width) <br />
+                <br />
+                <strong> Medium:</strong> Oil on canvas
+              </p>
+              <div class="flex gap-4">
+                <button
+                  class="py-2 px-4 border border-lightgray rounded-md font-medium"
+                >
+                  0
+                </button>
+                <button
+                  class="py-2 px-4 border border-lightgray rounded-md font-medium"
+                >
+                  Place bid
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- My bids -->
+          <!-- <div class="flex flex-col gap-4 md:w-1/2 md:pl-8 py-8">
+            <h2 class="text-xl">My bids</h2>
+          </div> -->
+        </div>
+      </section>
+    </main>
+    <footer class="bg-backgrounddark p-12">
+      <div class="container mx-auto flex justify-center">
+        <ul class="text-offwhite flex flex-col items-center gap-6">
+          <li>HOME</li>
+          <li>BROWSE</li>
+          <li>FAQ</li>
+          <li>VintageVault © 2024</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
