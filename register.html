@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VintageVault | Profile</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="bg-background font-montserrat text-darkgray">
+    <!-- Header -->
+
+    <header
+      class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
+    >
+      <div class="left-links">
+        <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Home</a
+        >
+        <a href="#" class="text-offwhite mr-4 font-poiret text-xl">Browse</a>
+      </div>
+
+      <div class="right-links">
+        <a href="/register.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Register</a
+        >
+        <a href="#" class="text-offwhite font-poiret text-xl">Log In</a>
+      </div>
+    </header>
+
+    <div
+      class="relative overflow-hidden bg-cover bg-no-repeat"
+      style="
+        background-position: 50%;
+        background-image: url('images/headernoise.png');
+        height: 100px;
+      "
+    ></div>
+    <main class="min-h-screen">
+      <section class="py-[60px] md:py-[120px] text-offwhite">
+        <div class="flex">
+          <div class="max-w-[1200px] m-auto flex flex-col items-center">
+            <h2 class="text-darkgray font-poiret text-2xl md:text-3xl mb-6">
+              SIGN UP TO START BIDDING!
+            </h2>
+            <div class="bg-backgrounddark max-w-[860px]">
+              <div class="p-6 md:p-20 max-w-[628px] flex">
+                <form class="flex flex-col gap-4">
+                  <div class="mb-4">
+                    <label class="block mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      placeholder="John James"
+                      class="w-full p-2 rounded border border-offwhite text-lightgray"
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label class="block mb-1"
+                      >Email (must contain @stud.noroff.no)</label
+                    >
+                    <input
+                      type="email"
+                      placeholder="John@stud.noroff.no"
+                      class="w-full p-2 rounded border border-offwhite text-lightgray"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label class="block mb-1"
+                      >Password (must be more than 8 characters long)</label
+                    >
+                    <input
+                      type="password"
+                      placeholder="********"
+                      class="w-full p-2 rounded border border-offwhite text-lightgray"
+                    />
+                  </div>
+                  <div class="text-xs mb-4">
+                    By registering to VintageVault, you agree to VintageVault's
+                    Terms of Service and have read the Privacy Policy
+                  </div>
+                  <button
+                    type="submit"
+                    class="flex items-center justify-center w-full py-3 border border-offwhite rounded-md font-medium hover:bg-background hover:text-darkgray"
+                  >
+                    Register
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-backgrounddark p-12">
+      <div class="container mx-auto flex justify-center">
+        <ul class="text-offwhite flex flex-col items-center gap-6">
+          <li>HOME</li>
+          <li>BROWSE</li>
+          <li>FAQ</li>
+          <li>VintageVault © 2024</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
