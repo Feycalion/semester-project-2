@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VintageVault | Profile</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="bg-background">
+    <!-- HEADER SECTION -->
+
+    <header
+      class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
+    >
+      <div class="left-links">
+        <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Home</a
+        >
+        <a href="#" class="text-offwhite mr-4 font-poiret text-xl">Browse</a>
+      </div>
+
+      <div class="right-links">
+        <a href="#" class="text-offwhite mr-4 font-poiret text-xl">Register</a>
+        <a href="#" class="text-offwhite font-poiret text-xl">Log In</a>
+      </div>
+    </header>
+
+    <div
+      class="relative overflow-hidden bg-cover bg-no-repeat"
+      style="
+        background-position: 50%;
+        background-image: url('images/headernoise.png');
+        height: 100px;
+      "
+    ></div>
+    <main class="flex justify-center">
+      <div class="p-8">
+        <div class="p-6 flex gap-8">
+          <div class="p-6 flex w-[340px] h-[460px]">
+            <div class="flex flex-col gap-6 items-center">
+              <div>
+                <h1 class="text-2xl text-gray-900 font-montserrat">
+                  Marie Hansson
+                </h1>
+              </div>
+              <div class="w-48 h-48 mr-6">
+                <img
+                  src="/images/0_0 (8).webp"
+                  alt="Marie Hansson"
+                  class="rounded-full w-full h-full object-cover"
+                />
+              </div>
+              <button
+                class="px-6 py-2 shadow bg-blue-500 font-montserrat text-white rounded hover:bg-blue-600 transition-colors"
+              >
+                Create new listing
+              </button>
+              <div class="col-span-1 p-6 w-[340px] h-[260px]">
+                <h2 class="text-lg font-semibold text-gray-900 font-montserrat">
+                  Bio
+                </h2>
+                <p class="mt-2 text-gray-600 font-montserrat">
+                  Antique enthusiast and collector with a passion for uncovering
+                  hidden treasures from the past. Always on the lookout for
+                  unique pieces with a story to tell. Excited to join the
+                  VintageVault community and discover the next prized
+                  possession.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- My Bids -->
+          <div class="col-span-2 p-6 w-[660px] h-[360px]">
+            <h2 class="text-lg font-semibold text-gray-900">My Bids</h2>
+            <ul class="mt-2">
+              <li class="py-2 border-b border-gray-200">
+                You bid 30 crowns on <strong>Vintage Painting</strong>. Listing
+                ends in 1h 21m.
+              </li>
+              <li class="py-2 border-b border-gray-200">
+                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
+                ends in 1h 21m.
+              </li>
+              <li class="py-2 border-b border-gray-200">
+                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
+                ends in 1h 21m.
+              </li>
+              <li class="py-2 border-b border-gray-200">
+                You bid 120 crowns on <strong>Gregorian Chants</strong>. Listing
+                has ended.
+              </li>
+              <li class="py-2 border-b border-gray-200">
+                You bid 1 crowns on
+                <strong>Rotten Apple from Last Tuesday</strong>. Listing has
+                ended.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- LISTINGS -->
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 pt-8">
+        <!-- Listing Card 1 -->
+        <div class="bg-white rounded shadow w-[340px] h-[460px]">
+          <div class="bg-gray-200 w-full h-64 rounded-t"></div>
+          <h2 class="text-lg font-semibold px-4 pt-4">Listing Title</h2>
+          <p class="text-gray-500 text-sm px-4 mb-4">Ends in 1h 14m</p>
+          <button
+            class="bg-blue-500 text-white py-2 px-4 rounded-full bottom-4 left-4 right-4"
+          >
+            Place Bid
+          </button>
+        </div>
+
+        <!-- Listing Card 2 -->
+        <div class="bg-white rounded shadow w-[340px] h-[460px]">
+          <div class="bg-gray-200 w-full h-64 rounded-t"></div>
+          <h2 class="text-lg font-semibold px-4 pt-4">Listing Title</h2>
+          <p class="text-gray-500 text-sm px-4 mb-4">Ends in 1h 14m</p>
+          <button
+            class="bg-blue-500 text-white py-2 px-4 rounded-full bottom-4 left-4 right-4"
+          >
+            Place Bid
+          </button>
+        </div>
+
+        <!-- Listing Card 3 -->
+        <div class="bg-white rounded shadow w-[340px] h-[460px]">
+          <div class="bg-gray-200 w-full h-64 rounded-t"></div>
+          <h2 class="text-lg font-semibold px-4 pt-4">Listing Title</h2>
+          <p class="text-gray-500 text-sm px-4 mb-4">Ends in 1h 14m</p>
+          <button
+            class="bg-blue-500 text-white py-2 px-4 rounded-full bottom-4 left-4 right-4"
+          >
+            Place Bid
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
