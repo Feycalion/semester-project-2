@@ -12,20 +12,92 @@
     <header
       class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
     >
-      <div class="left-links">
+      <!-- Burger menu icon -->
+      <button id="burger-menu-btn" class="text-offwhite block md:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="38"
+          height="38"
+          viewBox="0,0,300,300"
+        >
+          <g
+            fill="#ffeede"
+            fill-rule="nonzero"
+            stroke="none"
+            stroke-width="1"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="10"
+            stroke-dasharray=""
+            stroke-dashoffset="0"
+            font-family="none"
+            font-weight="none"
+            font-size="none"
+            text-anchor="none"
+            style="mix-blend-mode: normal"
+          >
+            <g transform="scale(5.12,5.12)">
+              <path d="M0,9v2h50v-2zM0,24v2h50v-2zM0,39v2h50v-2z"></path>
+            </g>
+          </g>
+        </svg>
+      </button>
+
+      <!-- Nav -->
+      <div class="left-links hidden md:block">
         <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
           >Home</a
         >
-        <a href="#" class="text-offwhite mr-4 font-poiret text-xl">Browse</a>
+        <a href="index.html" class="text-offwhite mr-4 font-poiret text-xl"
+          >Browse</a
+        >
       </div>
 
-      <div class="right-links">
+      <div class="right-links hidden md:block">
         <a href="/register.html" class="text-offwhite mr-4 font-poiret text-xl"
           >Register</a
         >
-        <a href="#" class="text-offwhite font-poiret text-xl">Log In</a>
+        <a href="/login.html" class="text-offwhite font-poiret text-xl"
+          >Log In</a
+        >
       </div>
     </header>
+
+    <!-- Burger menu -->
+    <div
+      id="burger-menu-overlay"
+      class="fixed top-0 left-0 w-full h-full bg-backgrounddark bg-opacity-75 z-20 md:hidden"
+    >
+      <div class="flex justify-end p-4">
+        <button id="burger-menu-close-btn" class="text-offwhite">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center mt-20">
+        <a href="/index.html" class="text-offwhite font-poiret text-xl mb-4"
+          >Home</a
+        >
+        <a href="/index.html" class="text-offwhite font-poiret text-xl mb-4"
+          >Browse</a
+        >
+        <a href="/register.html" class="text-offwhite font-poiret text-xl mb-4"
+          >Register</a
+        >
+        <a href="/login.html" class="text-offwhite font-poiret text-xl"
+          >Log In</a
+        >
+      </div>
+    </div>
 
     <div
       class="relative overflow-hidden bg-cover bg-no-repeat"
@@ -43,8 +115,12 @@
               SIGN UP TO START BIDDING!
             </h2>
             <div class="bg-backgrounddark max-w-[860px]">
-              <div class="p-6 md:p-20 max-w-[628px] flex">
+              <div class="p-6 md:p-20 md:pt-12 max-w-[628px] flex">
                 <form class="flex flex-col gap-4">
+                  <p class="flex self-center mb-6">
+                    Already have a user?
+                    <span class="ml-2 underline">Sign in</span>
+                  </p>
                   <div class="mb-4">
                     <label class="block mb-1">Full Name</label>
                     <input
@@ -73,10 +149,12 @@
                       class="w-full p-2 rounded border border-offwhite text-lightgray"
                     />
                   </div>
-                  <div class="text-xs mb-4">
+                  <p class="text-xs mb-4">
                     By registering to VintageVault, you agree to VintageVault's
-                    Terms of Service and have read the Privacy Policy
-                  </div>
+                    <span class="underline">Terms of Service</span> and have
+                    read the
+                    <span class="underline">Privacy Policy</span>
+                  </p>
                   <button
                     type="submit"
                     class="flex items-center justify-center w-full py-3 border border-offwhite rounded-md font-medium hover:bg-background hover:text-darkgray"

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VintageVault | Listing</title>
+    <title>VintageVault | Log in</title>
     <link rel="stylesheet" href="./src/output.css" />
   </head>
   <body class="bg-background font-montserrat text-darkgray">
@@ -108,61 +108,42 @@
       "
     ></div>
     <main class="min-h-screen">
-      <!-- Single listing -->
-      <section class="px-4 py-[60px] md:py-[120px]">
-        <!-- Container -->
-        <div class="max-w-[1200px] m-auto">
-          <div class="gap-8 flex flex-col lg:flex-row items-center">
-            <div class="flex flex-col gap-4">
-              <h1 class="text-2xl">Vintage Ring</h1>
-
-              <img
-                src="/images/0_0 (8).webp"
-                alt=""
-                class="md:max-w-[628px] md:max-h-[628px] object-cover"
-              />
-              <p class="text-lightgray">Ends in 1h 21m</p>
-            </div>
-            <div class="flex flex-col gap-4">
-              <div class="flex items-center gap-2">
-                <img
-                  src="/images/0_0 (8).webp"
-                  alt=""
-                  class="rounded-full w-10 h-10"
-                />
-                <p>Created by Marie Hansson</p>
-              </div>
-              <p class="text-xl">Description</p>
-              <p class="max-w-[628px]">
-                <strong> Title:</strong> "Gilded Waves" by Eloise Winslow
-                <br /><br />
-                Crafted by the masterful hand of Victorian painter Eloise
-                Winslow, this captivating seascape captures the essence of
-                maritime splendor and romantic adventure. Whether you're a
-                connoisseur of Victorian art or simply drawn to the romance of
-                bygone eras, this captivating painting is sure to elevate any
-                space with its timeless allure. <br />
-                <br />
-                Don't miss the opportunity to own a piece of history and add a
-                touch of Victorian splendor to your collection. <br />
-                <br />
-                <strong> Dimensions:</strong> 24 inches (height) x 18 inches
-                (width) <br />
-                <br />
-                <strong> Medium:</strong> Oil on canvas
-              </p>
-              <!-- Place bid button -->
-              <div class="flex gap-4">
-                <button
-                  class="py-2 px-8 border border-lightgray rounded-md font-medium"
-                >
-                  0
-                </button>
-                <button
-                  class="py-2 px-10 md:px-28 border border-lightgray rounded-md font-medium"
-                >
-                  Place bid
-                </button>
+      <section class="py-[60px] md:py-[120px] text-offwhite">
+        <div class="flex">
+          <div class="max-w-[1200px] m-auto flex flex-col items-center">
+            <h2 class="text-darkgray font-poiret text-2xl md:text-3xl mb-6">
+              LOG IN TO START BIDDING!
+            </h2>
+            <div class="bg-backgrounddark max-w-[860px]">
+              <div class="p-6 md:p-20 max-w-[628px] flex">
+                <form class="flex flex-col gap-4">
+                  <div class="mb-4">
+                    <label class="block mb-1">Email</label>
+                    <input
+                      type="email"
+                      placeholder="John@stud.noroff.no"
+                      class="w-full p-2 rounded border border-offwhite text-lightgray"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label class="block mb-1">Password</label>
+                    <input
+                      type="password"
+                      placeholder="********"
+                      class="w-full p-2 rounded border border-offwhite text-lightgray"
+                    />
+                  </div>
+                  <div class="text-xs mb-4">
+                    By logging in to VintageVault, you agree to VintageVault's
+                    Terms of Service and have read the Privacy Policy
+                  </div>
+                  <button
+                    type="submit"
+                    class="flex items-center justify-center w-full py-3 border border-offwhite rounded-md font-medium hover:bg-background hover:text-darkgray"
+                  >
+                    Log in
+                  </button>
+                </form>
               </div>
             </div>
           </div>
