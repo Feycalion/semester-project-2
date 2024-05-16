@@ -1,3 +1,5 @@
+import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
+
 async function singleListing() {
   const options = {
     method: "GET",
@@ -6,7 +8,7 @@ async function singleListing() {
     },
   };
   const response = await fetch(
-    "https://v2.api.noroff.dev/auction/listings/25cc3015-1761-43c6-aa09-e777da082dab",
+    API_BASE + API_LISTINGS + "/25cc3015-1761-43c6-aa09-e777da082dab",
     options
   );
   const result = await response.json();

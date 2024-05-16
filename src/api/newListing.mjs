@@ -1,3 +1,5 @@
+import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
+
 const listingData = {
   title,
   description,
@@ -17,7 +19,7 @@ const options = {
 };
 
 try {
-  const response = await fetch("https://v2.api.noroff.dev/listings", options);
+  const response = await fetch(API_BASE + API_LISTINGS, options);
   const result = await response.json();
   console.log(result);
 } catch (e) {

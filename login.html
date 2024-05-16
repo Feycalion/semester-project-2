@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VintageVault | Log in</title>
     <link rel="stylesheet" href="./src/output.css" />
+    <script type="module" defer src="./src/api/auth/login.mjs"></script>
   </head>
   <body class="bg-background font-montserrat text-darkgray">
     <!-- Header -->
@@ -116,10 +117,11 @@
             </h2>
             <div class="bg-backgrounddark max-w-[860px]">
               <div class="p-6 md:p-20 max-w-[628px] flex">
-                <form class="flex flex-col gap-4">
+                <form id="login-form" class="flex flex-col gap-4">
                   <div class="mb-4">
                     <label class="block mb-1">Email</label>
                     <input
+                      id="email"
                       type="email"
                       placeholder="John@stud.noroff.no"
                       class="w-full p-2 rounded border border-offwhite text-lightgray"
@@ -128,6 +130,7 @@
                   <div class="mb-6">
                     <label class="block mb-1">Password</label>
                     <input
+                      id="password"
                       type="password"
                       placeholder="********"
                       class="w-full p-2 rounded border border-offwhite text-lightgray"
