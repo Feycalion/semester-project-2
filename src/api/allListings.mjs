@@ -1,4 +1,5 @@
 import load from "./utils/load.mjs";
+import checkImage from "./utils/checkImage.mjs";
 
 import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
 
@@ -11,7 +12,6 @@ async function getListings() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${user.accessToken}`,
       "X-Noroff-API-Key": API_KEY,
     },
   };
@@ -27,11 +27,20 @@ async function getListings() {
 
 getListings();
 
+const searchBar = document.getElementById("search-bar");
 const listingContainer = document.getElementById("card-container");
+
+searchBar.addEventListener("keyup", (e) => {
+  const filteredResult = listingsArray.filter((listing) =>
+    listing.title.includes(e.target.value)
+  );
+  listingContainer.innerHTML = "";
+  printListings(filteredResult);
+});
 
 function printListings(listings) {
   listings.forEach((listing) => {
-    const listingImage = listing.media;
+    const listingImage = checkImage(listing.media);
     const listingCard = document.createElement("a");
     listingCard.href = `singlelisting.html?id=${listing.id}`;
 

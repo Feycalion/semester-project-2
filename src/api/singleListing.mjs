@@ -1,4 +1,17 @@
 import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
+import load from "./utils/load.mjs";
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const id = params.get("id");
+console.log(id);
+
+const user = load("profile");
+
+if (user) {
+  console.log("logged in");
+} else {
+  console.log("logged out");
+}
 
 async function singleListing() {
   const options = {
