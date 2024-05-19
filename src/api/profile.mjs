@@ -1,5 +1,6 @@
 import load from "./utils/load.mjs";
 import { API_KEY, API_BASE, API_LISTINGS, API_PROFILES } from "../../index.mjs";
+import checkImage from "./utils/checkImage.mjs";
 
 const user = load("profile");
 
@@ -20,6 +21,21 @@ async function accessProfile() {
   const result = await response.json();
 
   console.log(result);
+
+  displayprofile();
 }
 
 accessProfile();
+
+function displayprofile(profile) {
+  console.log(profile);
+
+  const profileContainer = document.getElementById("profile-container");
+  profileContainer.querySelector("h1").innerHTML = user.name;
+
+  const profileImage = profileContainer.querySelector("img");
+  profileImage.src = checkImage(profile.avatar);
+  profileImage.alt = `${profile.name}'s avatar`;
+
+  profileContainer.getElementsById("bio").textContent = user.bio;
+}

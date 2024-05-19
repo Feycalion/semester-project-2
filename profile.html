@@ -6,13 +6,14 @@
     <title>VintageVault | Profile</title>
     <link rel="stylesheet" href="./src/output.css" />
     <script type="module" defer src="./src/api/profile.mjs"></script>
+    <script type="module" defer src="./src/api/profileBids.mjs"></script>
+    <script type="module" defer src="./src/api/updateProfile.mjs"></script>
+    <script type="module" defer src="./index.mjs"></script>
   </head>
   <body class="bg-background font-montserrat text-darkgray">
     <!-- Header -->
 
-    <header
-      class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
-    >
+    <header class="absolute top-4 left-0 right-0 p-4 z-10 font-poiret text-xl">
       <!-- Burger menu icon -->
       <button id="burger-menu-btn" class="text-offwhite block md:hidden">
         <svg
@@ -47,23 +48,40 @@
       </button>
 
       <!-- Nav -->
-      <div class="left-links hidden md:block">
-        <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Home</a
-        >
-        <a href="index.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Browse</a
-        >
-      </div>
 
-      <div class="right-links hidden md:block">
-        <a href="/register.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Register</a
-        >
-        <a href="/login.html" class="text-offwhite font-poiret text-xl"
-          >Log In</a
-        >
-      </div>
+      <nav
+        class="justify-between items-center max-w-[1200px] m-auto hidden md:flex"
+      >
+        <div class="flex gap-4">
+          <a href="/index.html" class="text-offwhite">Home</a>
+          <a href="/index.html" class="text-offwhite">Browse</a>
+        </div>
+
+        <div id="register" class="flex gap-4">
+          <a href="/register.html" class="text-offwhite">Register</a>
+          <a href="login.html" class="text-offwhite">Log In</a>
+        </div>
+
+        <!-- Logged in view -->
+
+        <div class="flex gap-4 relative" id="avatar">
+          <img
+            id="profile-img"
+            class="w-10 h-10 rounded-full"
+            src="/images/0_0 (8).webp"
+            alt="User"
+          />
+          <div class="">
+            <div
+              id="dropdown"
+              class="flex flex-col absolute right-0 top-8 mt-2 w-48 z-[2000] bg-offwhite hidden"
+            >
+              <a href="/profile.html" class="px-4 py-2">Profile</a>
+              <a href="#" id="logout" class="px-4 py-2">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Burger menu -->
@@ -111,12 +129,16 @@
     <main>
       <section class="px-4 py-[60px] md:py-[120px]">
         <!-- Container -->
-        <div class="max-w-[1200px] m-auto flex flex-col md:flex-row">
+        <div
+          id="profile-container"
+          class="max-w-[1200px] m-auto flex flex-col md:flex-row"
+        >
           <!-- Profile -->
           <div class="flex flex-col gap-4 md:w-1/2 md:pr-8">
             <div class="flex flex-row gap-4">
-              <h1 class="text-2xl">Marie Hansson</h1>
+              <h1 class="text-2xl"></h1>
               <svg
+                id="update-profile"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -130,7 +152,8 @@
               </svg>
             </div>
             <img
-              src="/images/0_0 (8).webp"
+              id="img"
+              src=""
               alt=""
               class="max-w-[328px] max-h-[328px] object-cover"
             />
@@ -151,34 +174,12 @@
           </div>
 
           <!-- My bids -->
-          <div class="flex flex-col gap-4 md:w-1/2 md:pl-8 py-8">
+          <div
+            id="bids-container"
+            class="flex flex-col gap-4 md:w-1/2 md:pl-8 py-8"
+          >
             <h2 class="text-xl">My bids</h2>
-            <ul class="flex flex-col gap-2">
-              <li>
-                You bid 30 crowns on <strong>Vintage Painting</strong>. Listing
-                ends in 1h 21m.
-              </li>
-              <li>
-                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
-                ends in 1h 21m.
-              </li>
-              <li>
-                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
-                ends in 1h 21m.
-              </li>
-              <li>
-                You bid 30 crowns on <strong>Vintage Painting</strong>. Listing
-                ends in 1h 21m.
-              </li>
-              <li>
-                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
-                ends in 1h 21m.
-              </li>
-              <li>
-                You bid 15 crowns on <strong>Victorian Ring</strong>. Listing
-                ends in 1h 21m.
-              </li>
-            </ul>
+            <ul id="bids-list" class="flex flex-col gap-2"></ul>
           </div>
         </div>
       </section>
@@ -287,7 +288,7 @@
       <!-- Create listing modal -->
 
       <div
-        id="modal"
+        id="create-modal"
         class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center hidden"
       >
         <div class="bg-backgrounddark md:w-[628px]">
@@ -346,7 +347,7 @@
       <!-- Update profile modal -->
 
       <div
-        id="modal"
+        id="update-modal"
         class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center hidden"
       >
         <div class="bg-backgrounddark md:w-[628px]">
@@ -356,10 +357,11 @@
             >
               UPDATE PROFILE
             </h2>
-            <form class="text-offwhite flex flex-col gap-4">
+            <form id="update-form" class="text-offwhite flex flex-col gap-4">
               <div class="mb-4">
                 <label class="block mb-1">Name</label>
                 <input
+                  id="update-name"
                   type="text"
                   placeholder="John James"
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
@@ -370,6 +372,7 @@
                   >Profile picture (must contain a valid URL)</label
                 >
                 <input
+                  id="update-image"
                   type="text"
                   placeholder="image.url"
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
@@ -378,6 +381,7 @@
               <div class="mb-4">
                 <label class="block mb-1">Bio</label>
                 <textarea
+                  id="update-bio"
                   placeholder="Start typing..."
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
                 ></textarea>

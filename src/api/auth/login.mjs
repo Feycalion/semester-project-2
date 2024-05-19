@@ -1,4 +1,5 @@
 import { API_KEY, API_BASE, API_AUTH, API_LOGIN } from "../../../index.mjs";
+console.log(API_KEY);
 
 async function login(email, password) {
   const options = {

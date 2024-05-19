@@ -6,13 +6,14 @@
     <title>VintageVault | Log in</title>
     <link rel="stylesheet" href="./src/output.css" />
     <script type="module" defer src="./src/api/auth/login.mjs"></script>
+    <script type="module" defer src="./index.mjs"></script>
   </head>
   <body class="bg-background font-montserrat text-darkgray">
     <!-- Header -->
 
-    <header
-      class="absolute top-4 left-0 right-0 flex justify-between items-center p-4 z-10"
-    >
+    <!-- Header -->
+
+    <header class="absolute top-4 left-0 right-0 p-4 z-10 font-poiret text-xl">
       <!-- Burger menu icon -->
       <button id="burger-menu-btn" class="text-offwhite block md:hidden">
         <svg
@@ -47,23 +48,40 @@
       </button>
 
       <!-- Nav -->
-      <div class="left-links hidden md:block">
-        <a href="/index.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Home</a
-        >
-        <a href="index.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Browse</a
-        >
-      </div>
 
-      <div class="right-links hidden md:block">
-        <a href="/register.html" class="text-offwhite mr-4 font-poiret text-xl"
-          >Register</a
-        >
-        <a href="/login.html" class="text-offwhite font-poiret text-xl"
-          >Log In</a
-        >
-      </div>
+      <nav
+        class="justify-between items-center max-w-[1200px] m-auto hidden md:flex"
+      >
+        <div class="flex gap-4">
+          <a href="/index.html" class="text-offwhite">Home</a>
+          <a href="/index.html" class="text-offwhite">Browse</a>
+        </div>
+
+        <div id="register" class="flex gap-4">
+          <a href="/register.html" class="text-offwhite">Register</a>
+          <a href="login.html" class="text-offwhite">Log In</a>
+        </div>
+
+        <!-- Logged in view -->
+
+        <div class="flex gap-4 relative" id="avatar">
+          <img
+            id="profile-img"
+            class="w-10 h-10 rounded-full"
+            src="/images/0_0 (8).webp"
+            alt="User"
+          />
+          <div class="">
+            <div
+              id="dropdown"
+              class="flex flex-col absolute right-0 top-8 mt-2 w-48 z-[2000] bg-offwhite hidden"
+            >
+              <a href="/profile.html" class="px-4 py-2">Profile</a>
+              <a href="#" id="logout" class="px-4 py-2">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Burger menu -->

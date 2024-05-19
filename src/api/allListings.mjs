@@ -18,9 +18,15 @@ async function getListings() {
   const response = await fetch(API_BASE + API_LISTINGS, options);
   const listings = await response.json();
 
-  listingsArray = listings.data;
+  const preFilteredListings = listings.data.filter(
+    (listing) => listing.media.length > 0
+  );
 
-  console.log(listings);
+  listingsArray = preFilteredListings;
+
+  console.log(preFilteredListings);
+
+  //console.log(listings);
 
   printListings(listingsArray);
 }
