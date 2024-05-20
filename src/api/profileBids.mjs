@@ -3,8 +3,6 @@ import { API_KEY, API_BASE, API_BIDS, API_PROFILES } from "../../index.mjs";
 
 const user = load("profile");
 
-console.log(user);
-
 async function bidsByProfile() {
   const options = {
     method: "GET",
@@ -21,8 +19,6 @@ async function bidsByProfile() {
   );
 
   const result = await response.json();
-
-  console.log(result);
 
   if (response.ok) {
     printBids(result.data);

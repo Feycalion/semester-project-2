@@ -4,8 +4,6 @@ import checkImage from "./utils/checkImage.mjs";
 
 const user = load("profile");
 
-console.log(user);
-
 async function accessProfile() {
   const options = {
     method: "GET",
@@ -20,22 +18,22 @@ async function accessProfile() {
 
   const result = await response.json();
 
-  console.log(result);
-
-  displayprofile();
+  displayprofile(result);
 }
 
 accessProfile();
 
 function displayprofile(profile) {
-  console.log(profile);
+  console.log(profile.data.avatar);
 
   const profileContainer = document.getElementById("profile-container");
   profileContainer.querySelector("h1").innerHTML = user.name;
 
   const profileImage = profileContainer.querySelector("img");
-  profileImage.src = checkImage(profile.avatar);
+  profileImage.src = checkImage(profile.data.avatar.url);
   profileImage.alt = `${profile.name}'s avatar`;
 
-  profileContainer.getElementsById("bio").textContent = user.bio;
+  console.log();
+
+  profileContainer.getElementById("bio").textContent = user.bio;
 }
