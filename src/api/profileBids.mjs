@@ -38,13 +38,19 @@ myBids.innerHTML = "My bids";
 function printBids(bids) {
   bidsList.innerHTML = "";
 
-  bids.forEach((bid) => {
-    const bidItem = document.createElement("p");
-    bidItem.innerHTML = `You bid ${bid.amount} dollars on <strong>${
-      bid.listing.title
-    }</strong>. Listing ends in ${formatTimeRemaining(bid.listing.endsAt)}.`;
-    bidsContainer.appendChild(bidItem);
-  });
+  if (bids.length === 0) {
+    const noBidsMessage = document.createElement("p");
+    noBidsMessage.textContent = "This user hasn't made any bids yet.";
+    bidsContainer.appendChild(noBidsMessage);
+  } else {
+    bids.forEach((bid) => {
+      const bidItem = document.createElement("p");
+      bidItem.innerHTML = `You bid ${bid.amount} dollars on <strong>${
+        bid.listing.title
+      }</strong>. Listing ends in ${formatTimeRemaining(bid.listing.endsAt)}.`;
+      bidsContainer.appendChild(bidItem);
+    });
+  }
 }
 
 function formatTimeRemaining(endsAt) {

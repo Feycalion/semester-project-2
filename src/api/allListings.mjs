@@ -18,8 +18,6 @@ async function getListings() {
   const response = await fetch(API_BASE + API_LISTINGS + API_TAG, options);
   const listings = await response.json();
 
-  console.log(listings.data);
-
   // const preFilteredListings = listings.data.filter((listing) => {
   //   return listing.tags.some((tag) => tag.trim() === "vintage");
   // });
@@ -53,8 +51,9 @@ const searchBar = document.getElementById("search-bar");
 const listingContainer = document.getElementById("card-container");
 
 searchBar.addEventListener("keyup", (e) => {
+  const searchTerm = e.target.value.trim().toLowerCase();
   const filteredResult = listingsArray.filter((listing) =>
-    listing.title.includes(e.target.value)
+    listing.title.trim().toLowerCase().includes(searchTerm)
   );
   listingContainer.innerHTML = "";
   printListings(filteredResult);
@@ -67,7 +66,6 @@ function printListings(listings) {
     const listingCard = document.createElement("a");
     listingCard.href = `singlelisting.html?id=${listing.id}`;
 
-    console.log(listingImage[0].url);
     listingCard.classList.add("flex", "flex-col", "gap-4");
 
     listingCard.innerHTML = `<img src="${listingImage[0].url}" alt="${

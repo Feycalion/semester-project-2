@@ -24,6 +24,11 @@ document.getElementById("update-form").addEventListener("submit", async (e) => {
   const profilePic = document.getElementById("update-image").value;
   const bioValue = document.getElementById("update-bio").value;
 
+  if (!isValidURL(profilePic)) {
+    alert("Please enter a valid image URL.");
+    return;
+  }
+
   const options = {
     method: "PUT",
     headers: {
@@ -38,8 +43,6 @@ document.getElementById("update-form").addEventListener("submit", async (e) => {
       },
     }),
   };
-
-  console.log(options);
 
   const response = await fetch(API_BASE + API_PROFILES + profile.name, options);
 
@@ -61,6 +64,15 @@ document.getElementById("update-form").addEventListener("submit", async (e) => {
     alert("Failed to update profile");
   }
 });
+
+function isValidURL(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 document
   .getElementById("update-bio")

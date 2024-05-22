@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     authLinks.classList.remove("hidden");
     userProfile.classList.add("hidden");
-    menuAuthLinks.classList.add("hidden");
-    burgerMenuLoggedIn.classList.remove("hidden");
+    menuAuthLinks.classList.remove("hidden");
+    burgerMenuLoggedIn.classList.add("hidden");
   }
 
   // Toggle dropdown menu when clicking on profile image

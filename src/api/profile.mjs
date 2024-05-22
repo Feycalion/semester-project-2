@@ -24,16 +24,12 @@ async function accessProfile() {
 accessProfile();
 
 function displayprofile(profile) {
-  console.log(profile.data.avatar);
-
   const profileContainer = document.getElementById("profile-container");
   profileContainer.querySelector("h1").innerHTML = user.name;
 
   const profileImage = profileContainer.querySelector("img");
   profileImage.src = checkImage(profile.data.avatar.url);
   profileImage.alt = `${profile.name}'s avatar`;
-
-  console.log();
 
   document.getElementById("bio").innerText = user.bio;
 }
