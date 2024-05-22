@@ -8,6 +8,7 @@ module.exports = {
       offwhite: "#FFEEDE",
       lightgray: "#484845",
       darkgray: "#1C1C1B",
+      white: "#FFFFFF",
     },
     fontFamily: {
       poiret: ["Poiret One, sans-serif"],

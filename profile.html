@@ -8,6 +8,7 @@
     <script type="module" defer src="./src/api/profile.mjs"></script>
     <script type="module" defer src="./src/api/profileBids.mjs"></script>
     <script type="module" defer src="./src/api/updateProfile.mjs"></script>
+    <script type="module" defer src="./src/api/createListing.mjs"></script>
     <script type="module" defer src="./index.mjs"></script>
   </head>
   <body class="bg-background font-montserrat text-darkgray">
@@ -54,7 +55,6 @@
       >
         <div class="flex gap-4">
           <a href="/index.html" class="text-offwhite">Home</a>
-          <a href="/index.html" class="text-offwhite">Browse</a>
         </div>
 
         <div id="register" class="flex gap-4">
@@ -64,14 +64,15 @@
 
         <!-- Logged in view -->
 
-        <div class="flex gap-4 relative" id="avatar">
+        <div class="flex gap-4 relative items-center" id="avatar">
+          <p id="credits" class="text-offwhite">$1000</p>
           <img
             id="profile-img"
-            class="w-10 h-10 rounded-full"
+            class="w-10 h-10 rounded-full object-cover"
             src="/images/0_0 (8).webp"
             alt="User"
           />
-          <div class="">
+          <div>
             <div
               id="dropdown"
               class="flex flex-col absolute right-0 top-8 mt-2 w-48 z-[2000] bg-offwhite hidden"
@@ -162,6 +163,7 @@
             <p id="bio" class="max-w-[328px]"></p>
 
             <button
+              id="create-listing-btn"
               class="max-w-[328px] py-3 border border-lightgray rounded-md font-medium"
             >
               Create listing
@@ -293,10 +295,11 @@
             >
               CREATE NEW LISTING
             </h2>
-            <form class="text-offwhite flex flex-col gap-4">
+            <form id="create-form" class="text-offwhite flex flex-col gap-4">
               <div class="mb-4">
                 <label class="block mb-1">Title</label>
                 <input
+                  id="listing-title"
                   type="text"
                   placeholder="Start typing..."
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
@@ -307,6 +310,7 @@
                   >Image URL (must contain a valid URL)</label
                 >
                 <input
+                  id="listing-image"
                   type="text"
                   placeholder="image.url"
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
@@ -315,15 +319,26 @@
               <div class="mb-4">
                 <label class="block mb-1">Description</label>
                 <textarea
+                  id="listing-description"
                   placeholder="Start typing..."
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
                 ></textarea>
+              </div>
+              <div class="mb-4">
+                <label class="block mb-1">Tags (separate by comma)</label>
+                <input
+                  id="listing-tags"
+                  type="text"
+                  placeholder="Start typing..."
+                  class="w-full p-2 rounded border border-offwhite text-lightgray"
+                />
               </div>
               <div class="mb-4">
                 <label class="block mb-1"
                   >Listing deadline (choose a valid date)</label
                 >
                 <input
+                  id="listing-deadline"
                   type="date"
                   class="w-full p-2 rounded border border-offwhite text-lightgray"
                 />
@@ -353,15 +368,6 @@
               UPDATE PROFILE
             </h2>
             <form id="update-form" class="text-offwhite flex flex-col gap-4">
-              <div class="mb-4">
-                <label class="block mb-1">Name</label>
-                <input
-                  id="update-name"
-                  type="text"
-                  placeholder="John James"
-                  class="w-full p-2 rounded border border-offwhite text-lightgray"
-                />
-              </div>
               <div class="mb-4">
                 <label class="block mb-1"
                   >Profile picture (must contain a valid URL)</label

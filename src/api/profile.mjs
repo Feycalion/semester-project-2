@@ -35,5 +35,5 @@ function displayprofile(profile) {
 
   console.log();
 
-  profileContainer.getElementById("bio").textContent = user.bio;
+  document.getElementById("bio").innerText = user.bio;
 }
