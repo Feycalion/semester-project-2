@@ -1,5 +1,4 @@
 import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
-import checkImage from "./utils/checkImage.mjs";
 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
@@ -18,7 +17,6 @@ async function singleListing() {
     options
   );
   const result = await response.json();
-  //console.log(result);
 
   displayListing(result.data);
 }
@@ -45,12 +43,22 @@ function displayListing(listing) {
 
   bidsList.innerHTML = "";
 
-  listing.bids.forEach((bid) => {
-    const bidItem = document.createElement("p");
+  listing.bids.sort((a, b) => new Date(b.created) - new Date(a.created));
 
-    bidItem.innerHTML = `${listing.bids[0].bidder.name} bid ${bid.amount} dollars`;
-    bidsContainer.appendChild(bidItem);
-  });
+  if (listing.bids.length === 0) {
+    const noBidsMessage = document.createElement("p");
+    noBidsMessage.textContent = "There are no bids on this listing yet.";
+    bidsContainer.appendChild(noBidsMessage);
+  } else {
+    listing.bids.forEach((bid) => {
+      console.log(bid);
+
+      const bidItem = document.createElement("p");
+
+      bidItem.innerHTML = `${bid.bidder.name} bid ${bid.amount} dollars`;
+      bidsContainer.appendChild(bidItem);
+    });
+  }
 }
 
 function formatTimeRemaining(endsAt) {

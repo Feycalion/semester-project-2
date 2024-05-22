@@ -59,6 +59,18 @@ document.getElementById("create-form").addEventListener("submit", async (e) => {
   }
 });
 
+document
+  .getElementById("listing-description")
+  .addEventListener("input", updateCharCountDesc);
+
+function updateCharCountDesc() {
+  const descValue = document.getElementById("listing-description").value;
+  const remaining = 280 - descValue.length;
+  document.getElementById(
+    "char-count-desc"
+  ).innerText = `${remaining} characters remaining`;
+}
+
 function closeModal() {
   createListingModal.classList.add("hidden");
 }

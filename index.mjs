@@ -9,7 +9,7 @@ export const API_LISTINGS = "/auction/listings/";
 export const API_POST = "/posts";
 export const API_PROFILES = "/auction/profiles/";
 export const API_BIDS = "/bids?_listings=true";
-export const API_TAG = "?_tag=vintage";
+export const API_TAG = "?_tag=vintagevault";
 
 import logOut from "./src/api/utils/logOut.mjs";
 import load from "./src/api/utils/load.mjs";

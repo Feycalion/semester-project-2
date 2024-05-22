@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("update-bio").value = profile.bio || "";
     document.getElementById("update-image").value = profile.avatar.url || "";
   }
+
+  updateCharCount();
 });
 
 document.getElementById("update-profile").addEventListener("click", () => {
@@ -59,6 +61,18 @@ document.getElementById("update-form").addEventListener("submit", async (e) => {
     alert("Failed to update profile");
   }
 });
+
+document
+  .getElementById("update-bio")
+  .addEventListener("input", updateCharCount);
+
+function updateCharCount() {
+  const bioValue = document.getElementById("update-bio").value;
+  const remaining = 160 - bioValue.length;
+  document.getElementById(
+    "char-count"
+  ).innerText = `${remaining} characters remaining`;
+}
 
 function closeModal() {
   document.getElementById("update-modal").classList.add("hidden");

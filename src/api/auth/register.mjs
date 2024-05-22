@@ -17,12 +17,17 @@ async function register(username, email, password) {
 
     const result = await response.json();
     console.log(result);
-  } catch (e) {}
+    if (response.ok) {
+      window.location.href = "../../../login.html";
+    } else {
+      console.error(result);
+    }
+  } catch (e) {
+    console.error("Error:", e);
+  }
 }
 
 const registerForm = document.querySelector("#registerform");
-
-console.log(registerForm);
 
 registerForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -33,5 +38,3 @@ registerForm.addEventListener("submit", function (e) {
 
   register(name, email, password);
 });
-
-//register("chili999", "chili999@stud.noroff.no", "chili9999");

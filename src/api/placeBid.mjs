@@ -15,6 +15,10 @@ document
     const amountInput = document.getElementById("amount-input");
     const amount = amountInput.value;
 
+    profile.credits = profile.credits - amount;
+    localStorage.setItem("profile", JSON.stringify(profile));
+    document.getElementById("credits").innerText = "$" + profile.credits;
+
     console.log(+amount);
 
     const options = {
@@ -36,6 +40,9 @@ document
       );
       const result = await response.json();
       console.log("Bid placed:", result);
+      if (response.ok) {
+        window.location.href = "/singlelisting.html?id=" + id;
+      }
     } catch (error) {
       console.error("Error placing bid:", error);
     }
