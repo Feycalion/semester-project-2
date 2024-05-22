@@ -7,9 +7,7 @@ import {
 } from "../../../index.mjs";
 import load from "../utils/load.mjs";
 
-const user = load("profile");
-
-async function accessProfile(username) {
+async function accessProfile(user) {
   const options = {
     method: "GET",
     headers: {
@@ -19,7 +17,7 @@ async function accessProfile(username) {
     },
   };
 
-  const response = await fetch(API_BASE + API_PROFILES + username, options);
+  const response = await fetch(API_BASE + API_PROFILES + user.name, options);
 
   const result = await response.json();
 
@@ -32,8 +30,6 @@ async function accessProfile(username) {
 }
 
 async function login(email, password) {
-  console.log(email, password);
-
   const options = {
     method: "POST",
     headers: {
@@ -49,11 +45,12 @@ async function login(email, password) {
   try {
     const response = await fetch(API_BASE + API_AUTH + API_LOGIN, options);
     const result = await response.json();
-    console.log(result);
 
     if (response.ok) {
       localStorage.setItem("profile", JSON.stringify(result.data));
-      accessProfile(result.data.name);
+      const user = load("profile");
+
+      accessProfile(user);
     }
   } catch (e) {
     console.log(e);

@@ -82,7 +82,7 @@ function printListings(listings) {
   });
 }
 
-function formatTimeRemaining(endsAt) {
+export function formatTimeRemaining(endsAt) {
   const end = new Date(endsAt);
   const now = new Date();
   const timeRemaining = end - now;
@@ -99,15 +99,3 @@ function formatTimeRemaining(endsAt) {
 
   return `Ends in ${days}d ${hours}h ${minutes}m`;
 }
-
-// const mappedListings = listings.map((listing) => {
-//     if(listing.tags.includes("vintage")) {
-//         return listing;
-//     }
-// })
-
-// const filteredListings = listings.filter((lis) => lis.id !== listing.id)
-
-// mappedListings.forEach(() => {
-
-// })

@@ -1,19 +1,9 @@
 import { API_KEY, API_BASE, API_LISTINGS } from "../../index.mjs";
-import load from "./utils/load.mjs";
 import checkImage from "./utils/checkImage.mjs";
 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(id);
-
-const user = load("profile");
-
-if (user) {
-  console.log("logged in");
-} else {
-  console.log("logged out");
-}
 
 async function singleListing() {
   const options = {
@@ -23,37 +13,60 @@ async function singleListing() {
       "X-Noroff-API-Key": API_KEY,
     },
   };
-  const response = await fetch(API_BASE + API_LISTINGS + id, options);
+  const response = await fetch(
+    API_BASE + API_LISTINGS + id + "?_bids=true&_seller=true",
+    options
+  );
   const result = await response.json();
-  console.log(result);
+  //console.log(result);
+
+  displayListing(result.data);
 }
 
 singleListing();
 
-function singleListing(listing) {
+function displayListing(listing) {
   const listingContainer = document.getElementById("listing-container");
-  listingContainer.classList.add("px-4", "py-[60px]", "md:py-[120px]");
-  const listingTitle = document.getElementById("listing-title");
-  const listingImage = checkImage(listing.media);
+  listingContainer.querySelector("h1").innerHTML = listing.title;
+  listingContainer.querySelector("img").src = listing.media[0].url;
+  listingContainer.querySelector("p").innerHTML = formatTimeRemaining(
+    listing.endsAt
+  );
+
   const listingInfo = document.getElementById("listing-info");
+  listingInfo.querySelector("img").src = listing.seller.avatar.url;
+  listingInfo.querySelector(
+    "h3"
+  ).innerHTML = `Created by ${listing.seller.name}`;
+  listingInfo.querySelector("p").innerHTML = listing.description;
 
-  postInfo.innerHTML = `
-   <img src="${post.author?.avatar?.url}" class="w-10 h-10 rounded-full mr-4 object-cover" />
-   <p class="font-bold">${post.author?.name}</p>
-   `;
+  const bidsContainer = document.getElementById("bids-container");
+  const bidsList = document.getElementById("bids-list");
 
-  postCard.innerHTML += `
-    ${postInfo.outerHTML}
-    <h2 class="text-xl font-bold mb-4">${post.title}</h2>
-    <img src="${postImage.url}" alt="${postImage.alt}" class="flex items-center mb-4"/>
-    <p class="mt-4 text-lg leading-relaxed">${post.body}</p>
-    
-    `;
+  bidsList.innerHTML = "";
 
-  const tagsContainer = createTagsContainer(post.tags);
-  postCard.appendChild(tagsContainer);
+  listing.bids.forEach((bid) => {
+    const bidItem = document.createElement("p");
 
-  const postContainer = document.getElementById("single-post-container");
+    bidItem.innerHTML = `${listing.bids[0].bidder.name} bid ${bid.amount} dollars`;
+    bidsContainer.appendChild(bidItem);
+  });
+}
 
-  postContainer.appendChild(postCard);
+function formatTimeRemaining(endsAt) {
+  const end = new Date(endsAt);
+  const now = new Date();
+  const timeRemaining = end - now;
+
+  if (timeRemaining <= 0) {
+    return "Listing has ended";
+  }
+
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+
+  return `Listing ends in ${days}d ${hours}h ${minutes}m`;
 }

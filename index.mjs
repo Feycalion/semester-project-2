@@ -22,6 +22,15 @@ const userProfile = document.getElementById("avatar");
 const dropdown = document.getElementById("dropdown");
 const profileImage = document.getElementById("profile-img");
 const credits = document.getElementById("credits");
+const menuOverlay = document.getElementById("burger-menu-overlay");
+const burgerMenuBtn = document.getElementById("burger-menu-btn");
+const burgerMenuLoggedIn = document.getElementById("menu-logged-in");
+const menuAuthLinks = document.getElementById("menu-register");
+
+// Open hamburger menu when clicking on hamburger icon image
+burgerMenuBtn.addEventListener("click", () => {
+  menuOverlay.classList.toggle("hidden");
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   // Log out
@@ -38,9 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
     profileImage.src = checkImage(user.avatar.url);
     authLinks.classList.add("hidden");
     userProfile.classList.remove("hidden");
+    menuAuthLinks.classList.add("hidden");
+    burgerMenuLoggedIn.classList.remove("hidden");
   } else {
     authLinks.classList.remove("hidden");
     userProfile.classList.add("hidden");
+    menuAuthLinks.classList.add("hidden");
+    burgerMenuLoggedIn.classList.remove("hidden");
   }
 
   // Toggle dropdown menu when clicking on profile image

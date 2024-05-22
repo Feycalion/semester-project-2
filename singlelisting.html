@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VintageVault | Listing</title>
     <link rel="stylesheet" href="./src/output.css" />
-    <script type="module" src="./src/api/singlelisting.mjs"></script>
+    <script type="module" src="./src/api/singleListing.mjs"></script>
     <script type="module" src="./src/api/updateProfile.mjs"></script>
     <script type="module" src="./src/api/profile.mjs"></script>
+    <script type="module" src="./src/api/placeBid.mjs"></script>
     <script type="module" src="./index.mjs"></script>
   </head>
   <body class="bg-background font-montserrat text-darkgray">
@@ -106,13 +107,22 @@
         <a href="/index.html" class="text-offwhite font-poiret text-xl mb-4"
           >Home</a
         >
-
-        <a href="/register.html" class="text-offwhite font-poiret text-xl mb-4"
-          >Register</a
+        <a
+          href="/profile.html"
+          id="menu-logged-in"
+          class="text-offwhite font-poiret text-xl mb-4"
+          >Profile</a
         >
-        <a href="/login.html" class="text-offwhite font-poiret text-xl"
-          >Log In</a
-        >
+        <div id="menu-register" class="flex flex-col">
+          <a
+            href="/register.html"
+            class="text-offwhite font-poiret text-xl mb-4"
+            >Register</a
+          >
+          <a href="/login.html" class="text-offwhite font-poiret text-xl"
+            >Log In</a
+          >
+        </div>
       </div>
     </div>
 
@@ -131,7 +141,7 @@
         <div class="max-w-[1200px] m-auto">
           <div class="gap-8 flex flex-col lg:flex-row items-center">
             <div class="flex flex-col gap-4">
-              <h1 id="listing-title" class="text-2xl">Vintage Ring</h1>
+              <h1 id="listing-title" class="text-2xl"></h1>
 
               <img
                 id="listing-image"
@@ -139,7 +149,7 @@
                 alt=""
                 class="md:max-w-[628px] md:max-h-[628px] object-cover"
               />
-              <p class="text-lightgray">Ends in 1h 21m</p>
+              <p class="text-lightgray"></p>
             </div>
             <div id="listing-info" class="flex flex-col gap-4">
               <div class="flex items-center gap-2">
@@ -148,31 +158,14 @@
                   alt=""
                   class="rounded-full w-10 h-10"
                 />
-                <p>Created by Marie Hansson</p>
+                <h3></h3>
               </div>
-              <p class="text-xl">Description</p>
-              <p class="max-w-[628px]">
-                <strong> Title:</strong> "Gilded Waves" by Eloise Winslow
-                <br /><br />
-                Crafted by the masterful hand of Victorian painter Eloise
-                Winslow, this captivating seascape captures the essence of
-                maritime splendor and romantic adventure. Whether you're a
-                connoisseur of Victorian art or simply drawn to the romance of
-                bygone eras, this captivating painting is sure to elevate any
-                space with its timeless allure. <br />
-                <br />
-                Don't miss the opportunity to own a piece of history and add a
-                touch of Victorian splendor to your collection. <br />
-                <br />
-                <strong> Dimensions:</strong> 24 inches (height) x 18 inches
-                (width) <br />
-                <br />
-                <strong> Medium:</strong> Oil on canvas
-              </p>
+              <h2 class="text-xl">Description</h2>
+              <p id="listing-description" class="max-w-[628px]"></p>
               <!-- Place bid button -->
-              <form class="flex gap-4 flex-col sm:flex-row">
+              <form id="bidForm" class="flex gap-4 flex-col sm:flex-row">
                 <input
-                  id="listing-title"
+                  id="amount-input"
                   type="number"
                   placeholder="0"
                   class="py-2 px-8 border bg-background hover:bg-white border-lightgray rounded-md font-medium"
@@ -188,11 +181,11 @@
           </div>
         </div>
         <!-- Bids -->
-        <section class="max-w-[1200px] m-auto">
+        <section id="bids-container" class="max-w-[1200px] m-auto">
           <div class="px-4 md:px-0 py-[40px]">
-            <div id="bids-container" class="gap-8 flex flex-col lg:flex-row">
+            <div class="gap-8 flex flex-col lg:flex-row">
               <h2 class="text-xl">Bids</h2>
-              <ul id="bids-list" class="flex flex-col gap-2"></ul>
+              <ul id="bids-list" class="flex flex-col gap-4"></ul>
             </div>
           </div>
         </section>
@@ -202,7 +195,6 @@
       <div class="container mx-auto flex justify-center">
         <ul class="text-offwhite flex flex-col items-center gap-6">
           <li>HOME</li>
-
           <li>FAQ</li>
           <li>VintageVault © 2024</li>
         </ul>

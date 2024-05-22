@@ -87,7 +87,7 @@
     <!-- Burger menu -->
     <div
       id="burger-menu-overlay"
-      class="fixed top-0 left-0 w-full h-full bg-backgrounddark bg-opacity-75 z-20 md:hidden"
+      class="fixed top-0 left-0 w-full h-full bg-backgrounddark bg-opacity-75 z-20 hidden"
     >
       <div class="flex justify-end p-4">
         <button id="burger-menu-close-btn" class="text-offwhite">
@@ -106,15 +106,22 @@
         <a href="/index.html" class="text-offwhite font-poiret text-xl mb-4"
           >Home</a
         >
-        <a href="/index.html" class="text-offwhite font-poiret text-xl mb-4"
-          >Browse</a
+        <a
+          href="/profile.html"
+          id="menu-logged-in"
+          class="text-offwhite font-poiret text-xl mb-4"
+          >Profile</a
         >
-        <a href="/register.html" class="text-offwhite font-poiret text-xl mb-4"
-          >Register</a
-        >
-        <a href="/login.html" class="text-offwhite font-poiret text-xl"
-          >Log In</a
-        >
+        <div id="menu-register" class="flex flex-col">
+          <a
+            href="/register.html"
+            class="text-offwhite font-poiret text-xl mb-4"
+            >Register</a
+          >
+          <a href="/login.html" class="text-offwhite font-poiret text-xl"
+            >Log In</a
+          >
+        </div>
       </div>
     </div>
 
