@@ -20,6 +20,27 @@ document.getElementById("create-form").addEventListener("submit", async (e) => {
     .value.split(",")
     .map((tag) => tag.trim());
 
+  if (!listingTitle || !listingImage || !listingDesc || !listingDeadline) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  if (!isValidURL(listingImage)) {
+    alert("Please enter a valid image URL.");
+    return;
+  }
+
+  const now = new Date();
+  const deadlineDate = new Date(listingDeadline);
+  if (
+    deadlineDate < now ||
+    deadlineDate >
+      new Date(now.getFullYear() + 1, now.getMonth(), now.getDate())
+  ) {
+    alert("Please choose a valid deadline date within the next year.");
+    return;
+  }
+
   const profile = load("profile");
 
   const options = {
@@ -58,6 +79,15 @@ document.getElementById("create-form").addEventListener("submit", async (e) => {
     console.error("Error creating listing:", error);
   }
 });
+
+function isValidURL(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 document
   .getElementById("listing-description")

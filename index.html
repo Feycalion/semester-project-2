@@ -10,7 +10,7 @@
   </head>
   <body class="bg-background font-montserrat text-darkgray">
     <!-- Header -->
-    <header class="absolute top-4 left-0 right-0 p-4 z-10 font-poiret text-xl">
+    <header class="absolute top-4 left-0 right-0 p-4 z-30 font-poiret text-xl">
       <!-- Burger menu icon -->
       <button id="burger-menu-btn" class="text-offwhite block md:hidden">
         <svg
@@ -46,21 +46,25 @@
 
       <!-- Nav -->
 
-      <nav
-        class="justify-between items-center max-w-[1200px] m-auto hidden md:flex"
-      >
-        <div class="flex gap-4">
+      <nav class="justify-between items-center max-w-[1200px] m-auto md:flex">
+        <div class="hidden gap-4 md:flex">
           <a href="/index.html" class="text-offwhite">Home</a>
         </div>
 
-        <div id="register" class="flex gap-4">
+        <div
+          id="register"
+          class="flex gap-4 justify-end items-center my-[-40px]"
+        >
           <a href="/register.html" class="text-offwhite">Register</a>
           <a href="login.html" class="text-offwhite">Log In</a>
         </div>
 
         <!-- Logged in view -->
 
-        <div class="flex gap-4 relative items-center" id="avatar">
+        <div
+          class="flex justify-end gap-4 items-center my-[-40px] mx-[-20px]"
+          id="avatar"
+        >
           <p id="credits" class="text-offwhite">$1000</p>
           <img
             id="profile-img"
@@ -71,7 +75,7 @@
           <div class="">
             <div
               id="dropdown"
-              class="flex flex-col absolute right-0 top-8 mt-2 w-48 z-[2000] bg-offwhite hidden"
+              class="flex flex-col absolute mx-[-220px] top-12 mt-2 w-48 z-[2000] bg-offwhite hidden"
             >
               <a href="/profile.html" class="px-4 py-2">Profile</a>
               <a href="#" id="logout" class="px-4 py-2">Log Out</a>
@@ -261,8 +265,6 @@
     <footer class="bg-darkgray p-12">
       <div class="container mx-auto flex justify-center">
         <ul class="text-offwhite flex flex-col items-center gap-6">
-          <li>HOME</li>
-          <li>FAQ</li>
           <li>VintageVault © 2024</li>
         </ul>
       </div>

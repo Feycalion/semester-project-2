@@ -17,6 +17,7 @@ async function singleListing() {
     options
   );
   const result = await response.json();
+  localStorage.setItem("bids", JSON.stringify(result.data.bids));
 
   displayListing(result.data);
 }
@@ -51,8 +52,6 @@ function displayListing(listing) {
     bidsContainer.appendChild(noBidsMessage);
   } else {
     listing.bids.forEach((bid) => {
-      console.log(bid);
-
       const bidItem = document.createElement("p");
 
       bidItem.innerHTML = `${bid.bidder.name} bid ${bid.amount} dollars`;

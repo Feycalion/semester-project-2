@@ -13,13 +13,16 @@ document
     const profile = load("profile");
 
     const amountInput = document.getElementById("amount-input");
+    const placeBidBtn = document.getElementById("place-bid-btn");
     const amount = amountInput.value;
+
+    amountInput.addEventListener("keyup", (e) => {
+      console.log(e.target.value);
+    });
 
     profile.credits = profile.credits - amount;
     localStorage.setItem("profile", JSON.stringify(profile));
     document.getElementById("credits").innerText = "$" + profile.credits;
-
-    console.log(+amount);
 
     const options = {
       method: "POST",
