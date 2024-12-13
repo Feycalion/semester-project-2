@@ -42,6 +42,6 @@ To set up and run the project locally, follow these steps:
 To start the project locally:
 
 1. ```bash
-   npm run dev
+   npm run watch
    ```
 
