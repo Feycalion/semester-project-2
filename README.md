@@ -27,7 +27,7 @@ To set up and run the project locally, follow these steps:
    git clone https://github.com/Feycalion/semester-project-2
    ```
 3. ```bash
-   cd holidaze
+   cd semester-project-2
    ```
 
 ### Installation
